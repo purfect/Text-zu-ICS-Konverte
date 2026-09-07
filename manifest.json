@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Confluence Termin nach Outlook",
+  "version": "1.0.0",
+  "description": "Oeffnet Confluence-Termine aus Tabellen oder markiertem Text in Outlook.",
+  "permissions": ["menus", "tabs", "nativeMessaging"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "confluence-outlook@local"
+    }
+  }
+}
